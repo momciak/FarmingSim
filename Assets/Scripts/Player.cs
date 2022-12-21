@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int numSunflowerSeed = 0;
-
-    public Inventory inventory;
+    private Inventory inventory;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Sunflower")) return;
-
-        numSunflowerSeed++;
+        if (collision.CompareTag("Sunflower")) inventory.Add(CollectableType.SunflowerSeed);
+        //
     }
     private void Awake()
     {

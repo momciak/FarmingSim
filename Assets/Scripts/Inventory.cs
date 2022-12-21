@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
 public class Inventory : MonoBehaviour
-{  [System.Serializable] 
-    public class Slot
+{   public class Slot
     {
         public CollectableType type;
         public int count;

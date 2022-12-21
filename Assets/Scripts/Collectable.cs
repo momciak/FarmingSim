@@ -9,7 +9,7 @@ public enum CollectableType
 }
 public class Collectable : MonoBehaviour
 {
-    public CollectableType type;
+    public CollectableType Type;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
