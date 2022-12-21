@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Sunflower
+  - Tulip
+  - Rose
   layers:
   - Default
   - TransparentFX
