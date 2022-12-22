@@ -5,7 +5,9 @@ using UnityEngine;
 public enum CollectableType
 {
     None,
-    SunflowerSeed
+    SunflowerSeed,
+    TulipSeed,
+    RoseSeed,
 }
 public class Collectable : MonoBehaviour
 {
