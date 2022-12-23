@@ -5,11 +5,10 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed;
-
     public Animator animator;
 
     private Vector3 direction;
-
+    
     private void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -43,5 +42,6 @@ public class Movement : MonoBehaviour
             }
         }
     }
+
 }
 

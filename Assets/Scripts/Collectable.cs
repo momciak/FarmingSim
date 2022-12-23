@@ -16,6 +16,6 @@ public class Collectable : MonoBehaviour
     {
         if (!collision.CompareTag("Player")) return;
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
