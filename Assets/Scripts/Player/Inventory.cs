@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance { get; private set; }
     public int SunflowerSeedAmount => sunflowerSeedAmount;
     public int TulipSeedAmount => tulipSeedAmount;
     public int RoseSeedAmount => roseSeedAmount;
+
 
     [SerializeField] private InventoryUI inventoryUI;
 
     private int sunflowerSeedAmount = 0;
     private int tulipSeedAmount = 0;
     private int roseSeedAmount = 0;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     public void Add(CollectableType type) 
     {
         if (type == CollectableType.SunflowerSeed) sunflowerSeedAmount++;

@@ -10,11 +10,4 @@ public class Player : MonoBehaviour
     {
         inventory = GetComponent<Inventory>();
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Sunflower")) inventory.Add(CollectableType.SunflowerSeed);
-        else if (collision.CompareTag("Rose")) inventory.Add(CollectableType.RoseSeed);
-        else if (collision.CompareTag("Tulip")) inventory.Add(CollectableType.TulipSeed);
-    }
 }

@@ -31,7 +31,9 @@ public class Interactable : MonoBehaviour
         else if (FarmManager.Instance.IsOccupied(Vector3Int.FloorToInt(position),3))
         {
             FarmManager.Instance.ClearTile(Vector3Int.FloorToInt(position));
+            Inventory.Instance.Add(CollectableType.SunflowerSeed);
             Destroy(flower);
+            flower = null;
         }
     }
 
@@ -41,5 +43,6 @@ public class Interactable : MonoBehaviour
 
         flower = collision.gameObject;
     }
+
 }
 
