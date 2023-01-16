@@ -30,6 +30,19 @@ public class FarmManager : MonoBehaviour
         if (field[position.x + offset.x, offset.y - position.y] == 0) return false;
         return true;
     }
+
+    public bool IsOccupied(Vector3Int position, int index)
+    {
+        if (field[position.x + offset.x, offset.y - position.y] != index) return false;
+        return true;
+    }
+
+    public void ClearTile(Vector3Int position)
+    {
+        if (!IsOccupied(position,3)) return;
+
+        field[position.x + offset.x, offset.y - position.y] = 0;
+    }
     
     public void FillTile(Vector3Int position)
     {
