@@ -34,8 +34,14 @@ public class FarmManager : MonoBehaviour
     public void FillTile(Vector3Int position)
     {
         if (IsOccupied(position)) return;
-        print((position.x + offset.x).ToString() + " " + (offset.y - position.y).ToString());
 
         field[position.x + offset.x, offset.y - position.y] = 1;
+    }
+
+    public void IncreaseTileValue(Vector3Int position)
+    {
+        if (!IsOccupied(position)) return;
+
+        field[position.x + offset.x, offset.y - position.y]++;
     }
 }

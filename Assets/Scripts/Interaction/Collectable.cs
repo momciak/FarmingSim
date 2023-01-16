@@ -37,11 +37,13 @@ public class Collectable : MonoBehaviour
         {
             spriteIndex++;
             render.sprite = sprites[spriteIndex];
+            FarmManager.Instance.IncreaseTileValue(Vector3Int.FloorToInt(transform.position));
         }
         if (Time.time - spawnTime >= GameplayManager.Instance.FlowerGrowthTime *2 && spriteIndex == 1)
         {
             spriteIndex++;
             render.sprite = sprites[spriteIndex];
+            FarmManager.Instance.IncreaseTileValue(Vector3Int.FloorToInt(transform.position));
         }
     }
 }
