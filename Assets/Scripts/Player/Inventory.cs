@@ -20,5 +20,5 @@ public class Inventory : MonoBehaviour
         else if (type == CollectableType.RoseSeed) roseSeedAmount++;
 
         inventoryUI.Refresh();
-    } 
+    }
 }

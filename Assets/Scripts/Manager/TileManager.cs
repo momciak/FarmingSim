@@ -8,7 +8,6 @@ public class TileManager : MonoBehaviour
     public static TileManager Instance { get; private set; }
 
     [SerializeField] private Tilemap interactableMap;
-    [SerializeField] private Tile hiddenInteractableTile;
 
     private void Awake()
     {
@@ -21,17 +20,15 @@ public class TileManager : MonoBehaviour
             Instance = this;
         }
     }
-    private void Start()
-    {
-        foreach(var position in interactableMap.cellBounds.allPositionsWithin)
-        {
-            interactableMap.SetTile(position, hiddenInteractableTile);
-        }
-    }
     public bool IsInteractable(Vector3Int position)
     {
         TileBase tile = interactableMap.GetTile(position);
         if (tile != null) return true;
         return false;
+    }
+   
+    public Vector3 GetTilePosition(Vector3Int position)
+    {
+        return interactableMap.GetCellCenterWorld(position);
     }
 }

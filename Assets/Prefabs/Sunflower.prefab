@@ -108,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1968708, y: 0.14173436}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &2383232043337944728
 MonoBehaviour:
@@ -123,3 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 1
+  sprites:
+  - {fileID: -3774880952618362283, guid: 903b52b995c5fd5459cc3852c9eafe37, type: 3}
+  - {fileID: 1067067272243595571, guid: 903b52b995c5fd5459cc3852c9eafe37, type: 3}
+  - {fileID: -2802347691829884825, guid: 903b52b995c5fd5459cc3852c9eafe37, type: 3}
