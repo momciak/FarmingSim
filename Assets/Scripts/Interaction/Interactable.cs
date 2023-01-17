@@ -6,8 +6,6 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] private GameObject sunflowerPrefab;
     private TileManager tileManager;
-    private GameObject flower;
-
     private void Start()
     {
         tileManager = TileManager.Instance;
@@ -24,24 +22,15 @@ public class Interactable : MonoBehaviour
         if (!tileManager.IsInteractable(Vector3Int.FloorToInt(position))) return;
         if (!FarmManager.Instance.IsOccupied(Vector3Int.FloorToInt(position)))
         {
-            FarmManager.Instance.FillTile(Vector3Int.FloorToInt(position));
-            Instantiate(sunflowerPrefab, position, Quaternion.identity);
+            Collectable collectable = Instantiate(sunflowerPrefab, position, Quaternion.identity).GetComponent<Collectable>();
+            FarmManager.Instance.FillTile(Vector3Int.FloorToInt(position),collectable);
         }
 
-        else if (FarmManager.Instance.IsOccupied(Vector3Int.FloorToInt(position),3))
+        else if (FarmManager.Instance.IsOccupied(Vector3Int.FloorToInt(position),true))
         {
             FarmManager.Instance.ClearTile(Vector3Int.FloorToInt(position));
             Inventory.Instance.Add(CollectableType.SunflowerSeed);
-            Destroy(flower);
-            flower = null;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Sunflower")) return;
-
-        flower = collision.gameObject;
     }
 
 }

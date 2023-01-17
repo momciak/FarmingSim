@@ -8,7 +8,7 @@ public class FarmManager : MonoBehaviour
 
     [SerializeField] private Vector2Int offset;
     
-    private int[,] field;
+    private Collectable[,] field;
 
     private void Awake()
     {
@@ -23,38 +23,35 @@ public class FarmManager : MonoBehaviour
     }
     private void Start()
     {
-        field = new int[3,3];
+        field = new Collectable [3,3];
     }
     public bool IsOccupied(Vector3Int position)
     {
-        if (field[position.x + offset.x, offset.y - position.y] == 0) return false;
+        if (field[position.x + offset.x, offset.y - position.y] == null) return false;
         return true;
     }
 
-    public bool IsOccupied(Vector3Int position, int index)
+    public bool IsOccupied(Vector3Int position, bool isGrown)
     {
-        if (field[position.x + offset.x, offset.y - position.y] != index) return false;
+        if (field[position.x + offset.x, offset.y - position.y].IsGrown != isGrown) return false;
         return true;
     }
 
     public void ClearTile(Vector3Int position)
     {
-        if (!IsOccupied(position,3)) return;
+        if (!IsOccupied(position,true)) return;
 
-        field[position.x + offset.x, offset.y - position.y] = 0;
+        Collectable collectable = field[position.x + offset.x, offset.y - position.y];
+
+        Destroy(collectable.gameObject);
+
+        field[position.x + offset.x, offset.y - position.y] = null;
     }
     
-    public void FillTile(Vector3Int position)
+    public void FillTile(Vector3Int position, Collectable collectable)
     {
         if (IsOccupied(position)) return;
 
-        field[position.x + offset.x, offset.y - position.y] = 1;
-    }
-
-    public void IncreaseTileValue(Vector3Int position)
-    {
-        if (!IsOccupied(position)) return;
-
-        field[position.x + offset.x, offset.y - position.y]++;
+        field[position.x + offset.x, offset.y - position.y] = collectable;
     }
 }
