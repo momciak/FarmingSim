@@ -8,16 +8,15 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] 
     private TextMeshProUGUI sunflowerAmountText;
     [SerializeField]
-    private TextMeshProUGUI tulipAmountText;
+    private TextMeshProUGUI seedAmountText;
     [SerializeField]
-    private TextMeshProUGUI roseAmountText;
-
-    [SerializeField]
-    private Inventory inventory;
+    private TextMeshProUGUI coinAmountText;
     
     public void Refresh()
     {
-        sunflowerAmountText.text = $"x {inventory.SunflowerSeedAmount}";
+        sunflowerAmountText.text = $"x {Inventory.Instance.SunflowerAmount}";
+        coinAmountText.text = $"x {Inventory.Instance.CoinAmount}";
+        //seedAmountText.text = $"x {Inventory.Instance.SeedAmount}";
     }
     private void Start()
     {

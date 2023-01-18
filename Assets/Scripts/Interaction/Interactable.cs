@@ -29,7 +29,7 @@ public class Interactable : MonoBehaviour
         else if (FarmManager.Instance.IsOccupied(Vector3Int.FloorToInt(position),true))
         {
             FarmManager.Instance.ClearTile(Vector3Int.FloorToInt(position));
-            Inventory.Instance.Add(CollectableType.SunflowerSeed);
+            Inventory.Instance.Add(CollectableType.Sunflower);
         }
     }
 
