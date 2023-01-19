@@ -16,7 +16,7 @@ public class InventoryUI : MonoBehaviour
     {
         sunflowerAmountText.text = $"x {Inventory.Instance.SunflowerAmount}";
         coinAmountText.text = $"x {Inventory.Instance.CoinAmount}";
-        //seedAmountText.text = $"x {Inventory.Instance.SeedAmount}";
+        seedAmountText.text = $"x {Inventory.Instance.SeedAmount}";
     }
     private void Start()
     {

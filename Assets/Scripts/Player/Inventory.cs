@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private InventoryUI inventoryUI;
 
     private int sunflowerAmount = 0;
-    private int seedAmount = 0;
+    private int seedAmount = 3;
     private int coinAmount = 0;
 
 
@@ -43,6 +43,15 @@ public class Inventory : MonoBehaviour
         if (type == CollectableType.Sunflower) sunflowerAmount += amount;
         if (type == CollectableType.Coin) coinAmount += amount;
         if (type == CollectableType.Seed) seedAmount += amount;
+
+        inventoryUI.Refresh();
+    }
+
+    public void Remove(CollectableType type)
+    {
+        if (type == CollectableType.Sunflower) sunflowerAmount--;
+        if (type == CollectableType.Coin) coinAmount--;
+        if (type == CollectableType.Seed) seedAmount--;
 
         inventoryUI.Refresh();
     }
