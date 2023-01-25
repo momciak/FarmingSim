@@ -5,8 +5,10 @@ using UnityEngine;
 public class Prices : MonoBehaviour
 {
     public static Prices Instance { get; private set; }
-    public int Price => price;
-    private int price;
+    public int SeedPrice => seedPrice;
+    public int CoinPrice => coinPrice;
+    private int seedPrice;
+    private int coinPrice;
 
     private void Awake()
     {
@@ -27,6 +29,9 @@ public class Prices : MonoBehaviour
    
     public void PricesRandomizer()
     {
-       price = Random.Range(GameplayManager.Instance.PriceRange.x, GameplayManager.Instance.PriceRange.y);
+       seedPrice = Random.Range(GameplayManager.Instance.SeedPriceRange.x, GameplayManager.Instance.SeedPriceRange.y);
+       coinPrice = Random.Range(GameplayManager.Instance.CoinPriceRange.x, GameplayManager.Instance.CoinPriceRange.y);
     }
+
+
 }

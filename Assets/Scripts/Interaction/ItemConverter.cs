@@ -21,7 +21,11 @@ public class ItemConverter : MonoBehaviour
     {
         if (Inventory.Instance.GetCollectableAmount(itemToConvert) == 0) return;
 
-        Inventory.Instance.Add(resultItem, Prices.Instance.Price * Inventory.Instance.GetCollectableAmount(itemToConvert));
+        int price = 0;
+        if (itemToConvert == CollectableType.Sunflower) price = Prices.Instance.CoinPrice;
+        else if (itemToConvert == CollectableType.Coin) price = Prices.Instance.SeedPrice;
+
+        Inventory.Instance.Add(resultItem, price * Inventory.Instance.GetCollectableAmount(itemToConvert));
         Inventory.Instance.RemoveAll(itemToConvert);
     }
 
