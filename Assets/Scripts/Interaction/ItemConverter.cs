@@ -1,14 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class ItemConverter : MonoBehaviour
 {
     [SerializeField] private CollectableType itemToConvert;
     [SerializeField] private CollectableType resultItem;
+    [SerializeField] private TextMeshPro priceText;
+    [SerializeField] private Image itemToConvertImage;
+    [SerializeField] private Image resultItemImage;
+    [SerializeField] private Sprite sunflowerSprite;
+    [SerializeField] private Sprite coinSprite;
+    [SerializeField] private Sprite seedSprite;
     private bool hasPlayer;
 
+    private void OnEnable()
+    {
+        Prices.OnPriceChangeEvent += RefreshText;
+    }
 
+    private void OnDisable()
+    {
+        Prices.OnPriceChangeEvent -= RefreshText;
+    }
+    private void Start()
+    {
+        RefreshImages();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && hasPlayer)
@@ -17,7 +37,24 @@ public class ItemConverter : MonoBehaviour
         }
     }
 
-    public void ConvertItem()
+    private void RefreshText()
+    {
+        if (resultItem == CollectableType.Coin) priceText.text = Prices.Instance.CoinPrice.ToString();
+        else if (resultItem == CollectableType.Seed) priceText.text = Prices.Instance.SeedPrice.ToString();
+    }
+
+    private void RefreshImages()
+    {
+        if (itemToConvert == CollectableType.Coin) itemToConvertImage.sprite = coinSprite;
+        else if (itemToConvert == CollectableType.Seed) itemToConvertImage.sprite = seedSprite;
+        else if (itemToConvert == CollectableType.Sunflower) itemToConvertImage.sprite = sunflowerSprite;
+
+        if (resultItem == CollectableType.Coin) resultItemImage.sprite = coinSprite;
+        else if (resultItem == CollectableType.Seed) resultItemImage.sprite = seedSprite;
+        else if (resultItem == CollectableType.Sunflower) resultItemImage.sprite = sunflowerSprite;
+    }
+
+    private void ConvertItem()
     {
         if (Inventory.Instance.GetCollectableAmount(itemToConvert) == 0) return;
 
