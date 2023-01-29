@@ -39,8 +39,8 @@ public class ItemConverter : MonoBehaviour
 
     private void RefreshText()
     {
-        if (resultItem == CollectableType.Coin) priceText.text = Prices.Instance.CoinPrice.ToString();
-        else if (resultItem == CollectableType.Seed) priceText.text = Prices.Instance.SeedPrice.ToString();
+        if (resultItem == CollectableType.Coin) priceText.text = "=> " + Prices.Instance.CoinPrice.ToString();
+        else if (resultItem == CollectableType.Seed) priceText.text = "=> " + Prices.Instance.SeedPrice.ToString();
     }
 
     private void RefreshImages()
