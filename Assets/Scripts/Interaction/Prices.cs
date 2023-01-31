@@ -32,8 +32,8 @@ public class Prices : MonoBehaviour
    
     public void PricesRandomizer()
     {
-       seedPrice = Random.Range(GameplayManager.Instance.SeedPriceRange.x, GameplayManager.Instance.SeedPriceRange.y);
-       coinPrice = Random.Range(GameplayManager.Instance.CoinPriceRange.x, GameplayManager.Instance.CoinPriceRange.y);
+       seedPrice = Random.Range(GameplayManager.Instance.SeedPriceRange.x, GameplayManager.Instance.SeedPriceRange.y + 1);
+       coinPrice = Random.Range(GameplayManager.Instance.CoinPriceRange.x, GameplayManager.Instance.CoinPriceRange.y + 1);
 
         OnPriceChangeEvent.Invoke();
     }

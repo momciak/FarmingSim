@@ -12,8 +12,14 @@ public class TimeManager : MonoBehaviour
         if (Time.time - startTime <= GameplayManager.Instance.GameTime)
         {
             remainingTimeText.text = "Time Left: " + ((int)(GameplayManager.Instance.GameTime - (Time.time - startTime))).ToString();
+
         }
-        else remainingTimeText.text = "Time Left: 0";
+        else 
+        {
+            remainingTimeText.text = "Time Left: 0";
+            GameOverController.Instance.ShowGameOverWindow();
+        }
+
     }
     private void Start()
     {

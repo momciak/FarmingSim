@@ -62,8 +62,8 @@ public class ItemConverter : MonoBehaviour
         if (itemToConvert == CollectableType.Sunflower) price = Prices.Instance.CoinPrice;
         else if (itemToConvert == CollectableType.Coin) price = Prices.Instance.SeedPrice;
 
-        Inventory.Instance.Add(resultItem, price * Inventory.Instance.GetCollectableAmount(itemToConvert));
-        Inventory.Instance.RemoveAll(itemToConvert);
+        Inventory.Instance.Add(resultItem, price);
+        Inventory.Instance.Remove(itemToConvert);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

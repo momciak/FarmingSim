@@ -15,7 +15,7 @@ public class InventoryUI : MonoBehaviour
     public void Refresh()
     {
         sunflowerAmountText.text = $"x {Inventory.Instance.SunflowerAmount}";
-        coinAmountText.text = $"x {Inventory.Instance.CoinAmount}";
+        coinAmountText.text = $"x {Inventory.Instance.CoinAmount}/{GameplayManager.Instance.CoinsToWin}";
         seedAmountText.text = $"x {Inventory.Instance.SeedAmount}";
     }
     private void Start()
