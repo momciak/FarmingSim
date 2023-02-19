@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -31,5 +32,33 @@ public class GameplayManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+
+    [ContextMenu("LoadScene2")]
+    public void LoadScene2()
+    {
+        SceneManager.LoadScene(2, LoadSceneMode.Additive);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(2));
+    }
+
+    [ContextMenu("LoadScene3")]
+    public void LoadScene3()
+    {
+        SceneManager.LoadScene(3, LoadSceneMode.Additive);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(3));
+    }
+
+    [ContextMenu("UnoadScene2")]
+    public void UnloadScene2()
+    {
+        SceneManager.UnloadScene(2);
+    }
+
+
+    [ContextMenu("UnoadScene3")]
+    public void UnloadScene3()
+    {
+        SceneManager.UnloadScene(3);
     }
 }
