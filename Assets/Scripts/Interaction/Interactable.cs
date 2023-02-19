@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] private GameObject sunflowerPrefab;
+    [SerializeField] private Collectable sunflowerPrefab;
     private TileManager tileManager;
     private void Start()
     {
@@ -24,12 +24,11 @@ public class Interactable : MonoBehaviour
         {
             if (Inventory.Instance.SeedAmount > 0)
             {
-                Collectable collectable = Instantiate(sunflowerPrefab, position, Quaternion.identity).GetComponent<Collectable>();
+                Collectable collectable = Instantiate(sunflowerPrefab, position, Quaternion.identity);
                 FarmManager.Instance.FillTile(Vector3Int.FloorToInt(position), collectable);
                 Inventory.Instance.Remove(CollectableType.Seed);
             }
         }
-
         else if (FarmManager.Instance.IsOccupied(Vector3Int.FloorToInt(position), true))
         {
             FarmManager.Instance.ClearTile(Vector3Int.FloorToInt(position));
