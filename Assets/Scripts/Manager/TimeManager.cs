@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
@@ -17,7 +18,16 @@ public class TimeManager : MonoBehaviour
         else 
         {
             remainingTimeText.text = "Time Left: 0";
-            GameOverController.Instance.ShowGameOverWindow();
+            //GameOverController.Instance.ShowGameOverWindow();
+            if(SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                SceneManager.LoadScene(3);
+            }
+            else
+            {
+                GameplayDontDestroyOnLoad.ClearAll();
+                SceneManager.LoadScene(0);
+            }
         }
 
     }

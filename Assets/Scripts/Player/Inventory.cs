@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     public int SeedAmount => seedAmount;
     public int CoinAmount => coinAmount;
 
-    [SerializeField] private InventoryUI inventoryUI;
+    private InventoryUI inventoryUI => InventoryUI.Instance;
 
     private int sunflowerAmount = 0;
     private int seedAmount = 3;

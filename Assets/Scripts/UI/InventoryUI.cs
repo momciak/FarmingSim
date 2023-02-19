@@ -5,13 +5,20 @@ using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
+    public static InventoryUI Instance;
+
     [SerializeField] 
     private TextMeshProUGUI sunflowerAmountText;
     [SerializeField]
     private TextMeshProUGUI seedAmountText;
     [SerializeField]
     private TextMeshProUGUI coinAmountText;
-    
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public void Refresh()
     {
         sunflowerAmountText.text = $"x {Inventory.Instance.SunflowerAmount}";

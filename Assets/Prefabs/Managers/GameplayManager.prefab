@@ -46,5 +46,5 @@ MonoBehaviour:
   flowerGrowthTime: 2
   seedPriceRange: {x: 1, y: 2}
   coinPriceRange: {x: 1, y: 5}
-  gameTime: 45
+  gameTime: 10
   coinsToWin: 10
